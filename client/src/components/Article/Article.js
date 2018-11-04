@@ -14,7 +14,7 @@ const Article = props =>
           <a href={props.url} target="_blank">
             <button className="btn btn-default ">View Article</button>
           </a>
-          <button className="btn btn-primary" onClick={() => props.saveButton(props._id)}>Save</button>
+          <button className="btn btn-primary" onClick={() => props.handleSaveButton(props._id)}>Save</button>
         </span>
       </h4>
       <p>Date Published: {props.date}</p>

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Article from './components/Article'
+import Article from './components/Article/Article.js'
 import  Navbar from './components/Navbar/Navbar.js';
 import Search from './components/Search/Search.js';
+import Saved from './components/Saved/Saved.js';
+import API from './utils/api.js'
 
 
 class App extends Component {
@@ -31,7 +33,7 @@ class App extends Component {
   // A helper method for rendering one search results div for each article
   renderArticles = () => {
     return this.state.articles.map(article => (
-      <Results
+      <Article
         _id={article._id}
         title={article.headline.main}
         date={article.pub_date}
@@ -59,6 +61,7 @@ class App extends Component {
   // Keep track of what user types into topic input so that input can be grabbed later
   handleTopicChange = (event) => {
     this.setState({ topic: event.target.value });
+    console.log(this.state.topic)
   }
 
   // Keep track of what user types into topic input so that input can be grabbed later
@@ -74,7 +77,7 @@ class App extends Component {
   // When the search form submits, perform NYT api search with user input
   handleFormSubmit = (event) => {
     event.preventDefault();
-  
+  console.log(this.state.topic, this.state.startYear, this.state.endYear)
     API.searchNYT(this.state.topic, this.state.startYear, this.state.endYear)
       .then((res) => {
         this.setState({ articles: res.data.response.docs });
@@ -102,7 +105,7 @@ class App extends Component {
     return (
       <div className= "container">
       <Navbar/>
-        <Search>
+        <Search
 
             handleTopicChange={this.handleTopicChange}
             handleStartYearChange={this.handleStartYearChange}
@@ -110,7 +113,7 @@ class App extends Component {
             handleFormSubmit={this.handleFormSubmit}
             renderArticles={this.renderArticles}
             
-        </Search>
+        />
       </div>
     );
   }
