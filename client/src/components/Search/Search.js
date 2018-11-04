@@ -13,20 +13,20 @@ const Search = props =>
             </h3>
           </div>
           <div className="panel-body">
-            <form onClick= {props.HandleFormSubmit}>
+            <form >
               <div className="form-group">
                 <label htmlFor="topic">Topic</label>
-                <input onChange={props.HandleTopicChange}  type="text" className="form-control" id="topic" aria-describedby="emailHelp" />
+                <input onChange= {props.handleTopicChange}  type="text" className="form-control" id="topic" aria-describedby="emailHelp" />
               </div>
               <div className="form-group">
                 <label htmlFor="start-year">Start Year</label>
-                <input onChange={props.HandleStartYearChange} type="text" className="form-control" id="start-year" />
+                <input onChange={props.handleStartYearChange} type="text" className="form-control" id="start-year" />
               </div>
               <div className="form-group">
                 <label htmlFor="end-year">End Year</label>
-                <input onChange={props.HandleEndYearChange} type="text" className="form-control" id="end-year" />
+                <input onChange={props.handleEndYearChange} type="text" className="form-control" id="end-year" />
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button onClick={props.handleFormSubmit} type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>

@@ -4,14 +4,14 @@ import React from "react";
 
 const Article = props =>
 
-  <div className="container">
+  <div className="articles">
     <li className="list-group-item">
       <h4>
         <span>
           <em>{props.title}</em>
         </span>
         <span className="btn-group pull-right">
-          <a href={props.url} target="_blank">
+          <a href={props.url} >
             <button className="btn btn-default ">View Article</button>
           </a>
           <button className="btn btn-primary" onClick={() => props.handleSaveButton(props._id)}>Save</button>
@@ -19,6 +19,6 @@ const Article = props =>
       </h4>
       <p>Date Published: {props.date}</p>
     </li>
-  </div>
+</div>
 
 export default Article;
