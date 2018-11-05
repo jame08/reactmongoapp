@@ -79,23 +79,25 @@ class Main extends Component {
     API.searchNYT(this.state.topic, this.state.startYear, this.state.endYear)
       .then((res) => {
         this.setState({ articles: res.data.response.docs });
+        
       
       });
 
-      // API.getArticle().then((res) => {
-      //   this.setState({saved: res})
-      // })
   }
 
   // When save article button is clicked, add article to db
   handleSaveButton = (id) => {
+
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
-    const newSave = {_id: findArticleByID._id, title: findArticleByID.headline.main, url: findArticleByID.web_url};
+    const newSave = { _id: findArticleByID._id, title: findArticleByID.headline.main, url: findArticleByID.web_url};
     API.saveArticle(newSave)
     .then((res)=>{
+    
     }
     );
+    this.setState({ saved: [...this.state.saved, newSave] }) 
+    console.log(this.state.saved)
   
   }
 
@@ -134,7 +136,7 @@ class Main extends Component {
                   </div>
                   <div className="panel-body">
                     <ul className="list-group">
-                      {this.renderSaved}
+                      {this.renderSaved()}
                     </ul>
                   </div>
                 </div>

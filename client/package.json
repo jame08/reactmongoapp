@@ -10,13 +10,9 @@
     "react-scripts": "2.1.1"
   },
 
-  "proxy": 
-  {
-    "/api/*":  {
-      "target": "http://localhost:3006",
-      "secure": false
-    }
-  },
+  "proxy": "http://localhost:8000",
+
+
 
   "scripts": {
     "start": "react-scripts start",
