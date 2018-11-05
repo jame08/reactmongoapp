@@ -1,6 +1,9 @@
-.navbar {
-   color: rgb(0, 174, 255);
+.test {
+   text-align: center;
     margin-bottom: 2rem;
     margin-top: 1rem;
-    height: 75px;
+   
+    border-radius: 10px;
+    
+
 }

@@ -93,16 +93,17 @@ class Main extends Component {
     const newSave = { _id: findArticleByID._id, title: findArticleByID.headline.main, url: findArticleByID.web_url};
     API.saveArticle(newSave)
     .then((res)=>{
-    
+      this.getSavedArticles();
     }
-    );
-    this.setState({ saved: [...this.state.saved, newSave] }) 
-    console.log(this.state.saved)
+    ); 
+   
+
   
   }
 
   // When delete article button is clicked, remove article from db
   handleDeleteButton = (id) => {
+    console.log("id:",id)
     API.deleteArticle(id)
       .then(this.getSavedArticles());
   }
@@ -110,12 +111,16 @@ class Main extends Component {
   
   render() {
     return (
+    
+       
+     
 
       <div className="main-container">
+       
         <div className="container">
           {/* Jumbotron */}
-       <Navbar/>
-        
+       
+          <Navbar/>
           <Search
             handleTopicChange={this.handleTopicChange}
             handleStartYearChange={this.handleStartYearChange}
@@ -125,7 +130,7 @@ class Main extends Component {
           />
           {/* Saved Articles Section */}
          
-            <div className="row">
+            
               <div className="col-lg-12">
                 <div className="panel panel-primary">
                   <div className="panel-heading">
@@ -151,7 +156,7 @@ class Main extends Component {
             </p>
           </footer>
         </div>
-      </div>
+  
 
     );
   }

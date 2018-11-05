@@ -18,7 +18,7 @@ const api = {
   },
   // Deletes an article from the db
   deleteArticle: function(id) {
-    return axios.delete("/api/articles/:",`${id}`);
+    return axios.delete(`/api/articles/${id}`);
   }
 };
 
